@@ -14,6 +14,24 @@ $javascript = 0
 $clang = 0
 $web = 0
 
+
+def summary()
+	puts '------------------------------ Search Complete ----------------------------------'
+	puts 'Ruby Positions Listed:  '+$ruby.to_s
+	puts 'Python Positions Listed: '+$python.to_s
+	puts 'PHP Positions Listed: '+$php.to_s
+	puts 'CSharp Positions Listed: '+$csharp.to_s
+	puts 'Java Positions Listed: '+$java.to_s
+	puts 'C++ Positions Listed: '+$clang.to_s
+	puts 'Javascript Positions Listed: '+$javascript.to_s
+	puts 'Web Positions Listed: '+$web.to_s
+	puts 'Mobile Positions Listed: '+$mobile.to_s
+	puts 'QA Positions Listed: '+$qa.to_s
+	puts 'Senior Positions Listed: '+$senior.to_s
+	puts 'Junior Positions Listed: '+$junior.to_s
+	$driver.quit
+	exit(1)
+end
 def findPositions(count)
 	count += 1
 	if count < 50
@@ -65,24 +83,15 @@ def findPositions(count)
 			# date loads with entries -- wait for date
 			wait.until {$driver.find_element(:class, "date")}
 		rescue Selenium::WebDriver::Error::TimeOutError
-			puts '------------------------------ Search Complete ----------------------------------'
-			puts 'Ruby Positions Listed:  '+$ruby.to_s
-			puts 'Python Positions Listed: '+$python.to_s
-			puts 'PHP Positions Listed: '+$php.to_s
-			puts 'CSharp Positions Listed: '+$csharp.to_s
-			puts 'Java Positions Listed: '+$java.to_s
-			puts 'C++ Positions Listed: '+$clang.to_s
-			puts 'Javascript Positions Listed: '+$javascript.to_s
-			puts 'Web Positions Listed: '+$web.to_s
-			puts 'Mobile Positions Listed: '+$mobile.to_s
-			puts 'QA Positions Listed: '+$qa.to_s
-			puts 'Senior Positions Listed: '+$senior.to_s
-			puts 'Junior Positions Listed: '+$junior.to_s
-			$driver.quit
-			exit(1)
+			summary()
 		end
 		# Search the next page
-		element = $driver.find_element(:link_text, "next >")
+		begin
+			element = $driver.find_element(:link_text, "next >")
+		rescue Selenium::WebDriver::Error::NoSuchElementError
+			summary()
+		end
+
 		# binding.pry
 		if element.enabled?
 			element.click
