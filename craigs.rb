@@ -13,22 +13,29 @@ $java = 0
 $javascript = 0
 $clang = 0
 $web = 0
-
+$data = 0
+$front = 0
+$back = 0
 
 def summary()
 	puts '------------------------------ Search Complete ----------------------------------'
+	puts '-- Languages Listed --'
 	puts 'Ruby Positions Listed:  '+$ruby.to_s
 	puts 'Python Positions Listed: '+$python.to_s
 	puts 'PHP Positions Listed: '+$php.to_s
-	puts 'CSharp Positions Listed: '+$csharp.to_s
+	puts 'C# and/or .Net Positions Listed: '+$csharp.to_s
 	puts 'Java Positions Listed: '+$java.to_s
 	puts 'C++ Positions Listed: '+$clang.to_s
 	puts 'Javascript Positions Listed: '+$javascript.to_s
-	puts 'Web Positions Listed: '+$web.to_s
-	puts 'Mobile Positions Listed: '+$mobile.to_s
+	puts '-- Addtl. Data --'
 	puts 'QA Positions Listed: '+$qa.to_s
 	puts 'Senior Positions Listed: '+$senior.to_s
 	puts 'Junior Positions Listed: '+$junior.to_s
+	puts 'Web Positions Listed: '+$web.to_s
+	puts 'Mobile Positions Listed: '+$mobile.to_s
+	puts 'Data Positions Listed: '+$data.to_s
+	puts 'Front-end Positions Listed: '+$front.to_s
+	puts 'Backend Positions Listed: '+$back.to_s
 	$driver.quit
 	exit(1)
 end
@@ -53,7 +60,7 @@ def findPositions(count)
 				if txt.include?("mobile") || txt.include?("android") || txt.include?("ios")
 					$mobile +=1
 				end
-				if txt.include?("c#")
+				if txt.include?("c#") || txt.include?(".net")
 					$csharp +=1
 				end
 				if txt.include?("java") && !txt.include?("javascript")
@@ -76,7 +83,16 @@ def findPositions(count)
 				end		
 				if txt.include?("web")
 					$web +=1
-				end			
+				end		
+				if txt.include?("data")
+					$data +=1
+				end	
+				if txt.include?("front-end") || txt.include?("frontend")
+					$front +=1
+				end	
+				if txt.include?("back-end") || txt.include?("backend")
+					$back +=1
+				end	
 			end
 			end
 		end
