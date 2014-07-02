@@ -33,7 +33,7 @@ def findPositions(count)
 				if txt.include?("mobile") || txt.include?("android") || txt.include?("ios")
 					$mobile +=1
 				end
-				if txt.include?("c#") || txt.include?(".net")
+				if txt.include?("c#")
 					$csharp +=1
 				end
 				if txt.include?("java")
