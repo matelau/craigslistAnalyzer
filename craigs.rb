@@ -74,7 +74,7 @@ def findPositions(count)
 			puts 'C++ Positions Listed: '+$clang.to_s
 			puts 'Javascript Positions Listed: '+$javascript.to_s
 			puts 'Web Positions Listed: '+$web.to_s
-			puts 'mobile Positions Listed: '+$mobile.to_s
+			puts 'Mobile Positions Listed: '+$mobile.to_s
 			puts 'QA Positions Listed: '+$qa.to_s
 			puts 'Senior Positions Listed: '+$senior.to_s
 			puts 'Junior Positions Listed: '+$junior.to_s
