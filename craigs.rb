@@ -19,7 +19,6 @@ def findPositions(count)
 	if count < 50
 		elements = $driver.find_elements(:tag_name,'a')
 		elements.each do |x|
-			# binding.pry
 			txt = x.text.downcase
 			if txt.length > 13
 				if txt.include?("ruby")||txt.include?("rails")
