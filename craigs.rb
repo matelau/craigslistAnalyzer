@@ -39,6 +39,7 @@ def findPositions(count)
 		elements = $driver.find_elements(:tag_name,'a')
 		elements.each do |x|
 			txt = x.text.downcase
+			# Less than 13 tend to not be descriptive and or internal nav links
 			if txt.length > 13
 				if txt.include?("ruby")||txt.include?("rails")
 					$ruby +=1
@@ -55,7 +56,7 @@ def findPositions(count)
 				if txt.include?("c#")
 					$csharp +=1
 				end
-				if txt.include?("java")
+				if txt.include?("java") && !txt.include?("javascript")
 					$java += 1
 				end
 				if txt.include?("javascript") || txt.include?("front-end") || txt.include?("angular") || txt.include?("backbone") || txt.include?("node")
