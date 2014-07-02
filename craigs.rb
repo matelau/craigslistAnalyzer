@@ -32,6 +32,7 @@ def summary()
 	$driver.quit
 	exit(1)
 end
+# Will consider at most 50 pages or until a search times out
 def findPositions(count)
 	count += 1
 	if count < 50
@@ -63,7 +64,7 @@ def findPositions(count)
 				if txt.include?("senior") || txt.include?("sr.")
 					$senior += 1
 				end
-				if txt.include?("junior")
+				if txt.include?("junior") || txt.include?("jr.")
 					$junior += 1
 				end
 				if txt.include?("qa") || txt.include?("sdet")
