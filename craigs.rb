@@ -39,6 +39,7 @@ def summary()
 	$driver.quit
 	exit(1)
 end
+
 # Will consider at most 50 pages or until a search times out
 def findPositions(count)
 	count += 1
@@ -110,7 +111,6 @@ def findPositions(count)
 			summary()
 		end
 
-		# binding.pry
 		if element.enabled?
 			element.click
 			findPositions(count)
